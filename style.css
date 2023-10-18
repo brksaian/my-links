@@ -58,6 +58,7 @@ body * {
 
 #profile img {
   width: 112px;
+  height: 112px;
   border: 1px solid black;
   border-radius: 50%;
 }
@@ -91,12 +92,16 @@ body * {
   transform: translateY(-50%);
 
   left: 0;
+  animation: slide-out 0.2s;
+}
+
+#botao button:hover {
+  outline: 8px solid var(--link-color-hover);
 }
 
 .light #botao button {
   background: yellow var(--button-url) no-repeat center center;
-  right: 0;
-  left: initial;
+  animation: slide-in 0.2s forwards;
 }
 
 #botao span {
@@ -190,4 +195,32 @@ ul li a:hover {
 footer {
   padding: 24px 0;
   text-align: center;
+}
+
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url("./assets/bg-desktop.jpg");
+  }
+
+  .light {
+    --bg-url: url("./assets/bg-desktop-light.jpg");
+  }
+}
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
 }
